@@ -1,0 +1,43 @@
+date: 20 February 2026
+
+133. Clone Graph 
+
+Companies: Google , Amazon , Microsoft
+
+Marked: Medium 
+seems like: Easy
+
+site: LeetCode 
+branch: Top Interview Questions
+category: Graph 
+
+
+** intuition:
+ We need to Traverse The inputted Graph To get all nodes and their neighbors.
+ and need a map to trac a node is previously cloned or not??
+
+** Traversal Technique 
+Here, we can go with DFS or BFS.
+i choose DFS.
+
+** Complexity:
+Time: 
+ O(V+E)
+where, V=Number of Nodes.
+       E=Number of Edges.
+
+why not O(V*E)???
+
+explanation: For Each node weed need to Traverse neighbors seems like nested loop . but we need to traverse neighbors just at once in total.
+
+Space:
+ O(V) because of Using Extra space Unordered_map.
+ where,
+ V=number of node .
+ in this case V has range [0,100].
+ so we can write in the case of most worst case
+ O(101).
+ 
+ tips: you can also optimize it using hashMap. try it.
+
+

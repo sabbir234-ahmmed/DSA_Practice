@@ -1,0 +1,114 @@
+date: 21 February 2026
+
+Evaluate Division
+
+Companies: Google , Amazon , Microsoft
+
+Marked: Medium
+seems like: Easy
+
+site: LeetCode
+branch: Top Interview Questions
+category: Graph
+
+** intuition:
+We are given equations like a / b = 2.0.
+
+This can be treated as a weighted graph problem.
+
+Each variable = a node
+
+Each equation = an edge
+
+Weight of edge = division value
+
+Example:
+If a / b = 2.0
+Then:
+
+a → b weight = 2
+
+b → a weight = 1/2
+
+Now each query becomes:
+
+"Find path from src to dst and multiply weights along that path."
+
+So we:
+
+1. Build adjacency list
+
+2. Traverse graph
+
+3. Multiply edge weights during traversal
+
+4. We also need a visited set to avoid cycles.
+
+** Traversal Technique
+Here, we can go with DFS or BFS.
+I choose DFS.
+
+Because:
+
+We only need to find one valid path.
+
+During traversal, we keep multiplying weights.
+
+** Complexity:
+
+Time:
+O(V + E)
+
+where,
+V = number of variables (nodes)
+E = number of equations (edges)
+
+** why not O(V * E)???
+
+It may look like:
+
+"For each node we traverse neighbors → nested loop → maybe V * E"
+
+But that is wrong.
+
+Explanation:
+
+Every node is visited at most once per query (because of visited set).
+
+Every edge is explored at most once.
+
+So total traversal cost = visiting all nodes + all edges once.
+
+That is exactly:
+
+O(V + E)
+
+Not O(V * E)
+
+Think like standard DFS on graph:
+Even though it looks like nested loops, total work across recursion is linear.
+
+
+** Note (Important for this problem)**
+
+For each query we run DFS.
+
+So if there are Q queries:
+
+Total Time = O(Q × (V + E))
+
+But per DFS traversal it is O(V + E).
+
+** Space:
+O(V)**
+
+Because we use:
+
+unordered_map for adjacency list
+
+unordered_set for visited
+
+recursion stack in worst case
+
+Where,
+V = number of nodes

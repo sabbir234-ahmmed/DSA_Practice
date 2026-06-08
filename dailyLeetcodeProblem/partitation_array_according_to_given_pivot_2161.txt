@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
+         
+         vector<int>less;
+         vector<int>equal;
+         vector<int>more;
+
+         vector<int>ans;
+
+         int n=nums.size();
+
+         for(int i=0;i<n ;i++){
+            if(nums[i]<pivot){
+                less.push_back(nums[i]);
+            }else if (nums[i]> pivot){
+                more.push_back(nums[i]);
+            }else{
+                equal.push_back(nums[i]);
+            }
+         }
+
+
+         /// now arranged these nuber accroding to need with maintain relative order
+         int m=less.size();
+         for(int i=0;i<m;i++){
+            ans.push_back(less[i]);
+         }
+
+         int l=equal.size();
+         for(int i=0;i<l;i++){
+           ans.push_back(equal[i]);
+         }
+
+         int p= more.size();
+         for(int i=0;i<p ;i++){
+            ans.push_back(more[i]);
+         }
+
+
+         return ans;
+    }
+};

@@ -1,0 +1,25 @@
+class Solution {
+public:
+    long long maxTotalValue(vector<int>& nums, int k) {
+       long long  int mini=INT_MAX;
+       long long  int maxi=INT_MIN;
+
+        int n=nums.size();
+
+        for(int i=0;i<n ;i++){
+
+            if(nums[i]<mini){
+                mini=nums[i];
+            }
+
+            if(nums[i]>maxi){
+                maxi=nums[i];
+            }
+        }
+
+
+        long long int ans= k*(maxi-mini);
+
+        return ans;
+    }
+};
